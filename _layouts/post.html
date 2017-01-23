@@ -16,12 +16,18 @@ layout: default
   {% include disqus.html disqus_identifier=page.disqus_identifier %}
 </article>
 
-<!--div class="post mdl-shadow--2dp">
-  <header class="post-header">
-    <h3 class="post-title">{{ page.title }}</h3>
-    <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
-  </header>
-  <article class="post-content">
-    {{ content }}
-  </article>
-</div-->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://slidify.github.io/assets/js/jquery.liveType.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('a#announce').liveType({
+            typeSpeed: 50,
+            pauseTime          : 100,
+            pauseOnPunctuation : true,                             
+            punctuationChars   : [' ', '.', '?', '!', ':', ';'],
+            cursor: ''
+        });
+    })
+</script>
