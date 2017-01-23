@@ -51,7 +51,7 @@ video {
 }
 
 
-p.announce {
+a#announce {
     font-size: xx-large;
     position: absolute;
     text-align: center;
@@ -61,7 +61,7 @@ p.announce {
     font-weight: bold;
     top: 10vh;
 }
-p.announce>span {
+a#announce>span {
     padding: 5px;
     border-radius: 4px;
     background-color: rgba(50, 50, 50, 0.1);
