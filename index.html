@@ -8,6 +8,17 @@ layout: default
 </video>
 <p class="announce"><span>ECOROV: an economic ROV designed for ecological exploration!</span></p>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://slidify.github.io/assets/js/jquery.liveType.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('p.announce>span').liveType({
+            typeSpeed: 50
+        });
+    })
+</script>
+
 <section id="blog" class="blog-block"> 
     <div class="mdl-grid">
       {% for post in site.posts %}
