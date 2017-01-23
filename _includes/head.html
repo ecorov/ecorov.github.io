@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="{{ '/favicon.png' | prepend: site.baseurl }}">    
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/material.blue-deep_orange.min.css">    
+    <link rel="stylesheet" href="{{ 'css/main.css'| prepend: site.baseurl }}">
+    <link rel="stylesheet" href="{{ 'css/material.blue-deep_orange.min.css'| prepend: site.baseurl }}">    
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml" />
 </head>
