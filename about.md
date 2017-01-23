@@ -24,18 +24,6 @@ The ECOROV is designed with the following characters: cheap, easy-control, compa
 
 * [Souce code on Github](https://github.com/ecorov)
 
-<div id="timeline"></div>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://hotoo.me/life/assets/markline/0.6.0/markline.js"></script>
 
-<script>
-var Markline = require('markline');
-var $ = require("jquery");
-
-$.get("timeline.md", function(markdown){
-  var line = new Markline("#timeline", markdown);
-  line.render();
-});
-</script>
 
 
