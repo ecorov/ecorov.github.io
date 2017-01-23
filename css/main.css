@@ -1,0 +1,223 @@
+body{
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin: 0px;
+    background-image: url("/css/ocean_1.jpg");
+    background-size: cover;
+    font-weight: 300; 
+}
+
+
+div.menu {
+    width: 100%;
+    background: rgba(50, 50, 50, 0.1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position:fixed;
+    top: 0px;
+    z-index: 99;
+}
+
+.menu-item:hover {
+  color: #fff; 
+}
+
+a.menu-item {
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: large;
+    text-decoration: none;
+    font-weight: bold;    
+    color: black;   
+    text-shadow: 0 0 2px rgba(250,250,250,0.8);
+    font-weight: bold;    
+}
+
+
+video {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: initial;
+    z-index: -100;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(0%);
+    -webkit-transition: 1s opacity;
+    transition: 1s opacity;
+    //background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+    //background-size: cover;
+}
+
+
+p.announce {
+    font-size: xx-large;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    color: white;
+    text-shadow: 0 0 2px rgba(0,0,0,0.8);
+    font-weight: bold;
+    top: 10vh;
+}
+p.announce>span {
+    padding: 5px;
+    border-radius: 4px;
+    background-color: rgba(50, 50, 50, 0.1);
+}
+
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    text-align: center;
+    color: white;
+}
+
+
+section.blog-block {
+	position: absolute;
+	top: calc(100vw*9/16);
+    margin: auto;
+    border-width: 5px;
+    padding-top: 40px;
+}
+
+
+article.page-content {
+    padding: 80px 20px 20px 20px;
+}
+article>p {
+    font-size: large;
+}
+
+
+.post {
+    background-image: url("/css/ocean_1.jpg");
+    background-size: cover;
+    font-weight: 300; 
+  padding: 1rem;
+  //margin: 1rem 0 1rem 0; 
+}
+
+.mdl-cell.mdl-cell--4-col.mdl-cell--4-col-tablet.mdl-cell--12-col-phone.post-block {
+    border-radius: 6px;
+    padding: 12px;
+}
+
+
+
+
+
+
+
+.wrapper {
+  margin-right: 0px;
+  margin-left: 0px;
+  padding-right: 2rem;
+  padding-left: 2rem; 
+}
+
+
+.site-about {
+  color: #000;
+  text-decoration: none;
+  transition: color .3s ease-out;
+  width: 100%;
+  margin-left: -24px; }
+
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0; }
+
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure {
+  margin-bottom: 1rem; }
+
+/**
+ * Images
+ */
+img {
+  max-width: 100%;
+  vertical-align: middle; }
+
+/**
+ * Figures
+ */
+figure > img {
+  display: block; }
+
+/**
+ * Lists
+ */
+ul, ol {
+  margin-left: 2rem; }
+
+li > ul,
+li > ol {
+  margin-bottom: 0; }
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300; }
+
+code {
+  padding: 1px 5px; }
+
+pre {
+  padding: 8px 12px;
+  overflow-x: scroll; }
+  pre > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0; }
+
+
+
+
+.post-block {
+  background: #fff;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s; }
+  .post-block a {
+    text-decoration: none; }
+  .post-block .post-card {
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    height: 100%;
+    position: relative; }
+    .post-block .post-card:hover {
+      box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2); }
+      .post-block .post-card:hover img {
+        -webkit-filter: brightness(104%);
+        filter: brightness(104%); }
+    .post-block .post-card__fade {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 4rem;
+      background: url(data:image/svg+xml;base64,alotofcodehere);
+      background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 70%);
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(70%, white));
+      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 70%);
+      background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 70%);
+      background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 70%);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 70%); }
+
+
+
