@@ -12,4 +12,17 @@ layout: default
   </article>
 
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://slidify.github.io/assets/js/jquery.liveType.min.js"></script>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('a#announce').liveType({
+            typeSpeed: 50,
+            pauseTime          : 100,
+            pauseOnPunctuation : true,                             
+            punctuationChars   : [' ', '.', '?', '!', ':', ';'],
+            cursor: ''
+        });
+    })
+</script>
