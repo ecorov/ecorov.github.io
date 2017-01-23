@@ -46,8 +46,8 @@ video {
     transform: translateX(-50%) translateY(0%);
     -webkit-transition: 1s opacity;
     transition: 1s opacity;
-    //background: url('/css/screenshot-ecorov.png') no-repeat;
-    //sbackground-size: cover;
+    background: url('/css/screenshot-ecorov.png') no-repeat;
+    background-size: cover;
 }
 
 
