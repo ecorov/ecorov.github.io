@@ -14,7 +14,9 @@ layout: default
 <script type="text/javascript">
     $(document).ready(function(){
         $('p.announce>span').liveType({
-            typeSpeed: 100
+            typeSpeed: 100,
+            pauseOnPunctuation : true,                             
+            punctuationChars   : [' ', '.', '?', '!', ':', ';']
         });
     })
 </script>
