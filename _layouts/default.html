@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    {% include menu.html %}
+    {{ content }}
+    <footer>
+        <p>Copyright &copy; {{ site.author }} {{ site.time | date: "%Y" }}</p>
+    </footer>
+  </body>
+</html>
+
