@@ -1,7 +1,7 @@
 body{
     font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
     margin: 0px;
-    background-image: url("/css/ocean_1.jpg");
+    background-image: url("/css/ocean.jpg");
     background-size: cover;
     font-weight: 300; 
 }
@@ -92,7 +92,7 @@ article>p {
 
 
 .post {
-    background-image: url("/css/ocean_1.jpg");
+    background-image: url("/css/ocean.jpg");
     background-size: cover;
     font-weight: 300; 
   padding: 1rem;
