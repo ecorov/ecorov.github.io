@@ -84,10 +84,12 @@ section.blog-block {
 
 
 article.page-content {
-    padding: 80px 20px 20px 20px;
+    padding: 80px 15vw 20px 15vw;
+    text-align: center;
 }
 article>p {
     font-size: large;
+    text-align: left;
 }
 
 
@@ -103,12 +105,6 @@ article>p {
     border-radius: 6px;
     padding: 12px;
 }
-
-#rov_about {
-    height: 600px;
-    border-radius: 10px;
-}
-
 
 
 
