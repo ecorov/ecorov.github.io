@@ -85,8 +85,8 @@ article.page-content {
 article.post {
     background-image: url("/css/ocean.jpg");
     background-size: cover;
-    text-align: center;
-    //padding: 80px 15vw 20px 15vw;
+    //text-align: center;
+    padding: 80px 15vw 20px 15vw;
 }
 
 article p {
