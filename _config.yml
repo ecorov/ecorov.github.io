@@ -1,5 +1,5 @@
 
-baseurl: "http://ecorov.github.io"
+baseurl: ""
 markdown: kramdown
 lang: "en"
 author: "Huidong Tian"
