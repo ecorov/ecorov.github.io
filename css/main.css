@@ -68,25 +68,25 @@ footer {
 
 
 section.blog-block {
-	position: absolute;
+    position: absolute;
     top: calc(100vw*9/16);
     margin: auto;
     border-width: 5px;
     padding-top: 40px;
-	min-height: 100vh;
+    min-height: 100vh;
 }
 
 
 article.page-content {
     padding: 80px 15vw 20px 15vw;
-    text-align: center;
+    //text-align: center;
 }
 
 article.post {
     background-image: url("/css/ocean.jpg");
     background-size: cover;
     text-align: center;
-    padding: 80px 15vw 20px 15vw;
+    //padding: 80px 15vw 20px 15vw;
 }
 
 article p {
