@@ -89,7 +89,7 @@ article.post {
     padding: 80px 15vw 20px 15vw;
 }
 
-p {
+article p {
     font-size: large;
     text-align: left;
 }
