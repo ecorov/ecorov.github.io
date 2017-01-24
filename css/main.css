@@ -104,7 +104,10 @@ article>p {
     padding: 12px;
 }
 
-
+#rov_about {
+    height: 600px;
+    border-radius: 10px;
+}
 
 
 
