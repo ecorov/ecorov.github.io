@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-###ECOROV is a ROV designed for eclogical research purpose. 
+### ECOROV is a ROV designed for eclogical research purpose. 
 
 If you like fishing, you know how depressive it is after fishing for hours and there still is no fish got hooked. Then you may want to know: is there fish? If there is, why they don't bite? A ROV with video recording function can give some insight about above question, however, they generally very expensive. 
 
