@@ -52,14 +52,10 @@ video {
 
 
 a#announce {
-    //font-size: xx-large;
-    //position: absolute;
-    //text-align: center;
     width: 100%;
     color: white;
     text-shadow: 0 0 2px rgba(0,0,0,0.8);
     font-weight: bold;
-    //top: 10vh;
 }
 
 
@@ -91,14 +87,11 @@ article>p {
     font-size: large;
     text-align: left;
 }
-
-
-.post {
+article.post {
     background-image: url("/css/ocean.jpg");
     background-size: cover;
-    font-weight: 300; 
-  padding: 1rem;
-  //margin: 1rem 0 1rem 0; 
+    text-align: center;
+    padding: 80px 15vw 20px 15vw;
 }
 
 .mdl-cell.mdl-cell--4-col.mdl-cell--4-col-tablet.mdl-cell--12-col-phone.post-block {
