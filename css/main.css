@@ -119,12 +119,6 @@ article p {
   margin-left: -24px; }
 
 
-
-
-
-/**
- * Reset some basic elements
- */
 body, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
@@ -132,59 +126,41 @@ dl, dd, ol, ul, figure {
   padding: 0; }
 
 
-
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure {
   margin-bottom: 1rem; }
 
-/**
- * Images
- */
 img {
     padding-left: 10vw;
     width: 50vw;
     vertical-align: middle; 
     display: block;
+    border-radius: 10px;
 }
 
-/**
- * Figures
- */
 // figure > img {display: block; }
 
-/**
- * Lists
- */
-ul, ol {
-  margin-left: 2rem; }
+ul, ol { margin-left: 2rem; }
 
-li > ul,
-li > ol {
-  margin-bottom: 0; }
+li > ul, li > ol { margin-bottom: 0; }
 
-/**
- * Headings
- */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 300; }
+h1, h2, h3, h4, h5, h6 { font-weight: 300; }
 
-code {
-  padding: 1px 5px; }
+code { padding: 1px 5px; }
 
 pre {
-  padding: 8px 12px;
-  overflow-x: scroll; }
-  pre > code {
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.47);
+    padding: 8px 12px;
+    overflow-x: scroll; 
+}
+
+pre > code {
     border: 0;
     padding-right: 0;
-    padding-left: 0; }
-
-
-
+    padding-left: 0; 
+}
 
 .post-block {
   background: #fff;
@@ -213,7 +189,8 @@ pre {
       background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 70%);
       background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 70%);
       background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 70%);
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 70%); }
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 70%); 
+}
 
 
 
