@@ -131,7 +131,10 @@ p, blockquote, pre,
 ul, ol, dl, figure {
   margin-bottom: 1rem; }
 
-img {
+.post-card.mdl-shadow--2dp>img {
+    max-width: 100%;
+}
+p>img {
     padding-left: 10vw;
     width: 50vw;
     vertical-align: middle; 
