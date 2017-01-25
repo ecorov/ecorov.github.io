@@ -135,7 +135,7 @@ ul, ol, dl, figure {
     max-width: 100%;
 }
 p>img {
-    padding-left: 10vw;
+    margin-left: 10vw;
     width: 50vw;
     vertical-align: middle; 
     border-radius: 10px;
