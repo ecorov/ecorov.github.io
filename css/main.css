@@ -78,7 +78,7 @@ section.blog-block {
 
 
 article.page-content {
-    padding: 80px 15vw 20px 15vw;
+    padding: 80px 10vw 20px 10vw;
     //text-align: center;
 }
 
@@ -86,7 +86,7 @@ article.post {
     background-image: url("/css/ocean.jpg");
     background-size: cover;
     //text-align: center;
-    padding: 80px 15vw 20px 15vw;
+    padding: 80px 10vw 20px 10vw;
 }
 
 article p {
@@ -135,7 +135,7 @@ ul, ol, dl, figure {
     max-width: 100%;
 }
 p>img {
-    margin-left: 10vw;
+    margin-left: 15vw;
     width: 50vw;
     vertical-align: middle; 
     border-radius: 10px;
