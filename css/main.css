@@ -135,11 +135,10 @@ img {
     padding-left: 10vw;
     width: 50vw;
     vertical-align: middle; 
-    display: block;
     border-radius: 10px;
 }
 
-// figure > img {display: block; }
+figure > img {display: block; }
 
 ul, ol { margin-left: 2rem; }
 
