@@ -21,7 +21,7 @@ div.menu {
 }
 
 a.menu-item {
-    padding-left: 10px;
+    padding-left: 20px;
     padding-right: 10px;
     font-size: large;
     text-decoration: none;
@@ -68,12 +68,12 @@ footer {
 
 
 section.blog-block {
-    position: absolute;
-    top: calc(100vw*9/16);
-    margin: auto;
-    border-width: 5px;
-    padding-top: 40px;
-    min-height: 100vh;
+    //position: absolute;
+    //top: calc(100vw*9/16);
+    //margin: auto;
+    //border-width: 5px;
+    //padding-top: 40px;
+    //min-height: 100vh;
 }
 
 
