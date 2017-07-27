@@ -1,9 +1,93 @@
 ---
 layout: post
-title: "Access to Raspberry Pi through Ethernet cable"
-date: 2017-07-27 10:32
+title: "Connect Raspberry Pi to internet"
+date: 2017-07-27 16:32
 image: access2rpi.png
 ---
+
+
+
+We need the RPi can access to internet for updating, downloading, etc. I will show three type of connection to internet:
+
+* Access to EAP WiFi with wifi name and password
+* Access to PEAP WiFi with wifi name, userID and password
+* Access to smartphone’s Hot-spot with hot-spot name and password
+
+All above connections share same setting steps. 
+
+Let’s check RPi’s current network interface using shell command ifconfig
+
+![]( /images/ifconfig0.PNG)
+
+
+We can see there are three different interface: **eth0**, **lo**, **wlan0**.
+ 
+* **eth0** is for ethernet cable (RJ45) port, 
+* **lo** meaning local loopback interface, which often used when testing service locally
+* **wlan0** mean the wifi interface, currently, our RPi has only one wifi module, so it ended with *0*. *Wlan0* is the interface we need to modify which currently has no IP address. 
+
+**Step 1**: set the IP assign method to dynamic 
+
+```shell
+sudo nano /etc/network/interfaces
+```
+
+
+* Add **auto wlan0** above line allow-hotplug wlan0
+* Change **iface wlan0 inet manual** to **iface wlan0 inet dhcp**
+
+**Step 2**： configure wpa_supplicant.conf file 
+
+```shell
+sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+* For connection to EPA WiFi and personal Hot-spot, add following lines to its end.
+
+```shell
+network={
+      ssid="wifi name"
+      psk="password"
+  }
+```
+![]( /images/interfacessetting.PNG)
+
+* For connection to PEPA WiFi, add following lines to its end.
+
+```shell
+network={
+eap=PEAP
+ key_mgmt=WPA-EAP 
+ ssid="wifi name"
+ identity="user name"
+ password="password"
+   }
+```
+
+**Step 3**: restart networking with new configuration.
+
+```shell
+sudo /etc/init.d/networking restart
+```
+
+You can test your internet connection using command: 
+
+```shell
+ping www.google.com
+```
+
+Now, let’s update the Raspbian Jessie to the latest version
+
+```shell
+sudo apt-get -y update
+```
+
+
+
+
+
+
+
 
 **Task**: access to Raspberry Pi from computer through an Ethernet cable.
 
