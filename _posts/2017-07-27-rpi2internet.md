@@ -2,7 +2,7 @@
 layout: post
 title: "Step 2: Connect Raspberry Pi to internet"
 date: 2017-07-27 14:32
-image: interfacessetting.png
+image: interfacessetting.PNG
 ---
 
 
