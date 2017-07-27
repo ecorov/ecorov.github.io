@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Step 1: Access to Raspberry Pi through Ethernet cable"
+title: "Tutorial 1: Access to Raspberry Pi through Ethernet cable"
 date: 2017-07-26 10:32
 image: access2rpi.png
 ---
