@@ -1,15 +1,15 @@
 ---
 layout: post
 title: "Tutorial 5: Control camera from web browser."
-date: 2017-07-29 13:32
+date: 2017-07-28 18:32
 image: webCtrl.png
 ---
 
 
-In Tutorial 3, we have create a web service for streaming video using mjpg-streamer, it use port **8080**, this service is always needed because we always want to see the video streaming. Now, we need to create another web service for receive and execute command from web browser to ecoROV. I choose **[lighttpd](http://www.lighttpd.net/)** because it’s *light* and can integrated with the Python library **[flup](https://pypi.python.org/pypi/flup)** to talk with Python through [FastCGI](http://redmine.lighttpd.net/projects/lighttpd/wiki/Docs_ModFastCGI). This idea was originally used (as I know) by [Dav](http://davstott.me.uk/index.php/2013/03/17/raspberry-pi-controlling-gpio-from-the-web/).
+In Tutorial 3, we have create a web service for streaming video using *mjpg-streamer*, it uses port **8080**. This service is always needed because we always want to see the video streaming. Now, we need to create another web service for receiving and executing command from web browser to *ecoROV*. I choose **[lighttpd](http://www.lighttpd.net/)** because it’s *light* and can integrated with the Python library **[flup](https://pypi.python.org/pypi/flup)** to talk with Python through [FastCGI](http://redmine.lighttpd.net/projects/lighttpd/wiki/Docs_ModFastCGI). This idea was originally (as I know) used by [Dav](http://davstott.me.uk/index.php/2013/03/17/raspberry-pi-controlling-gpio-from-the-web/).
 
 
-**Step 1**: build a simple web server using **lighttpd**
+####**Step 1: build a simple web server using lighttpd**
 
 Install **lighttpd** and start the service
 
@@ -21,9 +21,9 @@ sudo /etc/init.d/lighttpd start
 The installation creates a HTML file called **/var/www/html/index.lighttpd.html** as the homepage, we can visit it by typing the IP address of RPi in web browser. 
 
 
-![](images/lighttpd.png)
+![](/images/lighttpd.png)
 
-We can create a new HTML file called */var/www/html/index.html* to make up our own homepage. For example: 
+We can create a new HTML file called **/var/www/html/index.html** to make up *our own* homepage. For example: 
 
 ~~~
 <html>
@@ -38,10 +38,10 @@ We can create a new HTML file called */var/www/html/index.html* to make up our o
 
 Now, refresh the homepage, you should see the RPi’s streaming video. 
 
-![](images/simplelighttpdhomepage.png)
+![](/images/simplelighttpdhomepage.png)
 
 
-**Step 2**: change default homepage path of lighttpd **/var/www**
+####**Step 2: change the root document of 'lighttpd' to "/var/www"**
 
 This is mainly due the pictures and videos are stored under */var/www/media*, set lighttpd’s homepage to here, so we can visit the pictures and video from web browser. 
 
@@ -50,13 +50,13 @@ sudo mv /var/www/html/index.html /var/www/index.html
 sudo rm -R /var/www/html
 ~~~
 
-For sure, we need to tell *lighttpd* that we have changed the homepage directory by modifying its configure file: **/etc/lighttpd/lighttpd.conf**
+For sure, we need to tell *lighttpd* that we have changed its root docuement by modifying its configure file: **/etc/lighttpd/lighttpd.conf**
 
 ~~~
 sudo nano /etc/lighttpd/lighttpd.conf
 ~~~
 
-In line “server.document-root”, change to “/var/www”. We need to restart the lighttpd service and check if it works as before in your web browser. 
+In line “server.document-root”, change to **/var/www**. We need to restart the lighttpd service and check if it works as before in your web browser. 
 
 
 ~~~
@@ -64,9 +64,9 @@ sudo service lighttpd restart
 ~~~
 
 
-**Step 3**: Let web browser talk with python
+####**Step 3: Let web browser talk with python**
 
-**Install *python-flup* **
+**Install 'python-flup'**
 
 ~~~
 sudo apt-get install -y python-flup
@@ -76,10 +76,10 @@ sudo apt-get install -y python-flup
 
 
 ~~~
-Sudo nano /etc/lighttpd/lighttpd.conf
+sudo nano /etc/lighttpd/lighttpd.conf
 ~~~
 
-This is the content of “/etc/lighttpd/lighttpd.conf”: 
+Change its content to the following: 
 
 ~~~
 server.modules = (
@@ -128,7 +128,7 @@ fastcgi.server = (
 
 ~~~
 
-The changes includes added "mod_setenv" &  "mod_fastcgi" in *server.modules*, and specified the “bin-path” to "/var/www/py/ecorov.py" in fastcgi.server section, which **contains all codes for controlling the ecoROV**.  The following is an example for the **ecorov.py** file:
+The changes includes added **mod_setenv** & **mod_fastcgi** in *server.modules*, and specified the “bin-path” to **/var/www/py/ecorov.py** in fastcgi.server section, which **contains all codes for controlling the ecoROV**.  The following is an example for the **ecorov.py** file:
 
 ~~~
 #!/usr/bin/python
@@ -170,12 +170,9 @@ def ru1():
   
 
 def app(environ, start_response):
-  # start our http response 
   start_response("200 OK", [("Content-Type", "text/html")])
-  # look for inputs on the URL
   i = urlparse.parse_qs(environ["QUERY_STRING"])
   yield ('&nbsp;') # flup expects a string to be returned from this function
-  # if there's a url variable named 'q'
   if "q" in i:
     if i["q"][0] == "im": 
       im()   # take a picture
@@ -187,34 +184,20 @@ def app(environ, start_response):
       ru0() # Turn off camera
     elif i["q"][0] == "ru1":
       ru1() # Turn on camera
-      
-#by default, Flup works out how to bind to the web server for us, so just call it with our app() function and let it get on with it
+
 WSGIServer(app).run()
 
 ~~~
 
-Use the following command s to create it.
+Use the following command s to create above file.
+
 ~~~
 sudo mkdir /var/www/py
 sudo nano /var/www/py/ecorov.py
 
 ## Important
 sudo chmod 755 /var/www/py/ecorov.py
-
 ~~~
-
-**Note! ** The first line specify to use **pythonROV** which we haven’t created. 
-
->By default, the /usr/bin/python executable runs as the user that calls it. That’s likely to be either >the ‘pi’ user if you’re interactively using it, or the ‘www-data’ user if it’s being run by the web >server. An easy to configure way of breaching this security is to user linux’s setuid feature. This >is a potentially dangerous technique, so needs a bit of careful thought, but it is easy to set up.
-
-
-~~~
-sudo cp /usr/bin/python2.7 /usr/bin/pythonROV
-sudo chmod u+s /usr/bin/pythonROV
-sudo ls -l /usr/bin/pythonROV
-~~~
-
-
 
 
 Now let’s restart the **lighttpd** service again. 
@@ -223,25 +206,53 @@ Now let’s restart the **lighttpd** service again.
 sudo service lighttpd restart
 ~~~
 
-Type the url **192.168.8.8/py/ecorov.py?q=ru0** in your web browser, you will see a black web page. Then open a new tab and type **192.168.8.8** , you should see that the video streaming has stopped, and you can also found the red LED light on camera board has turned off. The url 192.168.8.8/py/ecorov.py?q=ru0 actually has asked the camera to stop, and we can use 192.168.8.8/py/ecorov.py?q=ru1 to restart the camera again. 
+Type the url **192.168.8.8/py/ecorov.py?q=ru0** in your web browser, you will see a black web page. Then open a new tab and type **192.168.8.8** , you should see that the video streaming has stopped, and you can also found the red LED light on camera board has turned off. The url **192.168.8.8/py/ecorov.py?q=ru0** actually has asked the camera to stop, and we can use **192.168.8.8/py/ecorov.py?q=ru1** to restart the camera again. 
 
 
-**Step 4**: Design a user interface to control camera.
+####**Step 4: Design a user interface to control camera.**
 
 Using url to control the camera is boring. We prefer to click a button to take a picture or start a video capture. This can be easily done by adding some code in the homepage file: **/var/www/index.html**. For example: 
 
 
 ~~~
+<html>
+  <head>
+    <title>ECOROV</title>
+    <script src="js/jquery-1.10.2.js"></script>
+  </head>
+  <body>
+    <iframe id="streaming"  src="http://192.168.8.8:8080/javascript_simple.html" ></iframe>
+    <form>
+        <input type="button" value="Take picture"    onclick="go('im')" >
+        <input type="button" value="Start recording" onclick="go('ca1')" >
+        <input type="button" value="Stop recording"  onclick="go('ca0')" >
+        <input type="button" value="Disable camera"  onclick="go('ru0')" >
+        <input type="button" value="Enable camera"   onclick="go('ru1')" >
+    </form>
+    <script type="text/javascript">
+      function go(qry) {
+        $.ajax({
+            type: 'GET',
+            dataType: 'jsonp',
+            url: 'ecorov.py?q=' + qry
+        });
+      }
+    </script>
+  </body>
+</html>
+
 
 ~~~
 
 
-We need to download the *jquery* used in above file first. 
+We need to download the *jquery* used in above file. 
 
 ~~~
 sudo mkdir /var/www/js
 sudo wget -O /var/www/js/jquery-1.10.2.js https://raw.githubusercontent.com/ecorov/ecorov/master/www/js/jquery-1.10.2.js
 ~~~
+
+Now, let's back to the web browser, and type RPi's address, e.g. 192.168.8.8. You should see the video streaming with control buttons. Try the buttion "Disable camera" to see if the red LED light on camera board turn off. You can also try other buttons. Remember the pictures and videos are stored at **/var/www/media**.
 
 
 

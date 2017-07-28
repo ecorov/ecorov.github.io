@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tutorial 4: Let RPi take picture, record video while streaming"
-date: 2017-07-29 13:32
+date: 2017-07-28 13:32
 image: im.png
 ---
 
