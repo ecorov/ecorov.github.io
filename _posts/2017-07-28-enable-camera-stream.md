@@ -63,20 +63,30 @@ sudo chmod 777 /dev/shm/mjpeg
 # start recording 
 sudo su -c 'raspimjpeg > /dev/null &' 
 
-# To stop raspimjpeg, using command "sudo killall raspimjeg"
+# To stop raspimjpeg, using command "sudo killall raspimjpeg"
 ~~~
 
 You should see the *led light* on camera now turn to **red**. 
 
 **Step 3**: stream a picture to web browser
 
-The video streaming is actually stream  a series of pictures in a high frame ratio. I compared different streaming methods and finally choose  **mjpg-streamer**, it supplies several different streaming methods includes stream pictures. And it is actually very effective, the time delay could be less than 200ms. 
+The video streaming is actually stream  a series of pictures in a high frame ratio. I compared different streaming methods and finally choose  **mjpg-streamer**, it supplies several different streaming methods includes stream pictures. And it is actually very stable and effective, the time delay could be less than 200ms. 
 
 * **Install git and close the mjpg-streamer repository** 
 
 ~~~
-sudo apt-get install -y git
+# Install git (for clone repository), 
+# cmkae (C language compilation tool ) and 
+# libjpeg8-dev (library used by mjpg-streamer)
+sudo apt-get install -y git cmake libjpeg8-dev
+
+# Download and compile mjpg-streamer
 sudo git clone https://github.com/ecorov/mjpg-streamer.git
+cd mjpg-streamer; 
+
+# The following commands may take several minutes
+sudo make
+sudo make install
 sudo ln -s mjpg-streamer/mjpg-streamer /usr/bin/mjpg-streamer
 ~~~
 
