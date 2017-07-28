@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tutorial 3: Enable camera module and start video streaming"
-date: 2017-07-27 14:32
+date: 2017-07-28 13:32
 image: videostream.png
 ---
 
@@ -52,7 +52,7 @@ sudo wget -O /etc/raspimjpeg https://raw.githubusercontent.com/ecorov/ecorov/mas
 sudo chmod 644 /etc/raspimjpeg
 
 # raspimjpeg need a FIFO: First In First Out
-sudo mkdir -p /var/www 
+sudo mkdir -p /var/www/media 
 sudo mknod /var/www/FIFO p
 sudo chmod 666 /var/www/FIFO
 
