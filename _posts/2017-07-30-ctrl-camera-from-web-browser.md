@@ -9,7 +9,7 @@ image: webCtrl.png
 In Tutorial 3, we have create a web service for streaming video using *mjpg-streamer*, it uses port **8080**. This service is always needed because we always want to see the video streaming. Now, we need to create another web service for receiving and executing command from web browser to *ecoROV*. I choose **[lighttpd](http://www.lighttpd.net/)** because it’s *light* and can integrated with the Python library **[flup](https://pypi.python.org/pypi/flup)** to talk with Python through [FastCGI](http://redmine.lighttpd.net/projects/lighttpd/wiki/Docs_ModFastCGI). This idea was originally (as I know) used by [Dav](http://davstott.me.uk/index.php/2013/03/17/raspberry-pi-controlling-gpio-from-the-web/).
 
 
-####**Step 1: build a simple web server using lighttpd**
+#### **Step 1: build a simple web server using lighttpd**
 
 Install **lighttpd** and start the service
 
@@ -41,7 +41,7 @@ Now, refresh the homepage, you should see the RPi’s streaming video.
 ![](/images/simplelighttpdhomepage.png)
 
 
-####**Step 2: change the root document of 'lighttpd' to "/var/www"**
+#### **Step 2: change the root document of 'lighttpd' to "/var/www"**
 
 This is mainly due the pictures and videos are stored under */var/www/media*, set lighttpd’s homepage to here, so we can visit the pictures and video from web browser. 
 
@@ -64,7 +64,7 @@ sudo service lighttpd restart
 ~~~
 
 
-####**Step 3: Let web browser talk with python**
+#### **Step 3: Let web browser talk with python**
 
 **Install 'python-flup'**
 
@@ -209,7 +209,7 @@ sudo service lighttpd restart
 Type the url **192.168.8.8/py/ecorov.py?q=ru0** in your web browser, you will see a black web page. Then open a new tab and type **192.168.8.8** , you should see that the video streaming has stopped, and you can also found the red LED light on camera board has turned off. The url **192.168.8.8/py/ecorov.py?q=ru0** actually has asked the camera to stop, and we can use **192.168.8.8/py/ecorov.py?q=ru1** to restart the camera again. 
 
 
-####**Step 4: Design a user interface to control camera.**
+#### **Step 4: Design a user interface to control camera.**
 
 Using url to control the camera is boring. We prefer to click a button to take a picture or start a video capture. This can be easily done by adding some code in the homepage file: **/var/www/index.html**. For example: 
 
