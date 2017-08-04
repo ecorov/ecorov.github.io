@@ -8,17 +8,18 @@ image: watersensor_bb.png
 
 **Material**: 
 
- * Resistor (1k ohm)
- * Wires
+ * **Resistor (1k ohm)**
+ * **Wires**
 
 
-The GPIO pins of RPi can also used to read data, for example, to detect if a switcher has turned on or off, this [video](https://www.youtube.com/watch?v=NAl-ULEattw) explained this feature very clear. Water is conductible, so can be taken as a switcher. 
+The GPIO pins of RPi can also be used to read data, for example, to detect if a switcher has turned on or off, this [video](https://www.youtube.com/watch?v=NAl-ULEattw) explained this feature very clear. Water is conductible, so it can be taken as a switcher. 
 
 #### Step 1: connect resistor to RPi as shown below:
 
 ![](/images/watersensor_bb.png)
 
-**Note: leave the circuit open**
+
+
 
 #### Step 2:  Start RPi, then open Python console  and paste the following code:
 
@@ -37,7 +38,7 @@ for i in range(100):
  
 ~~~
 
-It should print **0** continuously cause the circuit is open. 
+It should print **0** continuously cause the circuit is open, and the GPIO pin 18 actually connected with **GND**.
 
 #### Step 3:  Put the open ends of the two wires into water, but isolated (water will connect them together). 
 
@@ -50,7 +51,7 @@ for i in range(100):
  
 ~~~
 
-It supposed to print **0**  continuously. 
+It supposed to print **1**  continuously. So we found the water!
 
 
 **Note**, other GPIO pins can be taken as 3.3V pin by setting them to **OUT**  and **HIGH** mode,
