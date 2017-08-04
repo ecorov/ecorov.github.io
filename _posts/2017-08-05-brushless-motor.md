@@ -23,7 +23,7 @@ Note: normal ESC general has two thick wires (red and black) and 3 thin wires (b
 
 #### Step 2:  Setup the maximum throttle (2000us) of ESC
 
-**Unconnect one power wire between battery and ESC, then start RPi, open Python console and paste the following code:**
+**Unconnect one power wire between battery and ESC!!** Then start RPi, open Python console and paste the following code:**
 
 
 ~~~
@@ -48,7 +48,7 @@ BM.ChangeDutyCycle(100)
 
 ~~~
 
-Most ESC accept pwm form 1000us (stop) to 2000 us (full throttle), so if the PWM signal is 500 Hertz, then its duty cycle is 2ms (each pulse). 1000us is 1ms,  which is 50 percent of the duty cycle. 2000us is 2ms,  which is 100 percent of the duty cycle. **function "ChangeDutyCycle" allow 0.1% resolution **. Above code will generate a 2000us (2ms) PWM signal, which is the maximum throttle of the ESC. 
+Most ESC accept pwm form 1000us (stop) to 2000 us (full throttle), so if the PWM signal is 500 Hertz, then its duty cycle is 2ms (each pulse). 1000us is 1ms,  which is 50 percent of the duty cycle. 2000us is 2ms,  which is 100 percent of the duty cycle. Function *ChangeDutyCycle* allow **0.1% resolution**, so we have **500 levels** (50.0%-100.0% ) to control the motor. Above code will generate a 2000us (2ms) PWM signal, which is the maximum throttle of the ESC. 
 
 #### Step 3:  Setup the minimum throttle (1000us) of ESC. 
 
@@ -60,7 +60,7 @@ Connect ESC’s power wires to battery. You will hear some sound, like **bee---*
 BM.ChangeDutyCycle(100)
 ~~~
 
-This will generate the minimum pwm signal for ESC. If the minimum throttle was successfully setup, then you will hear some sound like: **bee---bee-bee-bee 123**. The **bee---** means minimum throttle was setup successfully, **bee-bee-bee** means that ESC detect the battery is a 3s battery, and **123** means that ESC is ready for input.
+This will generate the minimum pwm signal for ESC. If the minimum throttle was successfully setup, you will hear some sound like: **bee---bee-bee-bee 123**. The **bee---** means minimum throttle was setup successfully, **bee-bee-bee** means that ESC detect the battery is a 3s battery, and **123** means that ESC is ready for input.
 
 
 Now, we can drive the brushless motor using command, e.g.:
@@ -70,4 +70,4 @@ BM.ChangeDutyCycle(60.5)
 ~~~
 
 
-Note: theoretically, the motor should start when the PWM cycle is longer than 1ms , but due to different quality of the motor, some of them will not spin until they receive a higher voltage signal. You can start with BM.ChangeDutyCycle(50.5) , and increase with a step *1* to see when your motor start to spin. If your motor didn’t spin, one reason could be your ESC doesn’t work. 
+Note: theoretically, the motor should start when the PWM cycle is longer than 1000us , but due to different quality of the motor, some of them will not spin until they receive a higher voltage signal. You can start with `BM.ChangeDutyCycle(50.5)`, and increase with a **step 1.0** to see when your motor start to spin. If your motor never  spin, anothr reason could be your ESC doesn’t work at all. 
