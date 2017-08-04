@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: "Tutorial 8: Let RPi control a step-motor"
@@ -11,16 +10,17 @@ image: RPiStepMotor_bb.png
 
  * [Step motor (2-phase-4-wire s)](https://www.dhgate.com/store/product/35-stepper-motor-2-phase-4-wire-1-8-degrees/382142958.html)
  * [EasyDriver (step motor driver) ](http://www.schmalzhaus.com/EasyDriver/)
- * LiPo Battery (3s, 11.1V)
+ * [LiPo Battery (3s, 11.1V)](http://www.ebay.com/bhp/3s-lipo-battery)
 
-#### Step 1: connect step motor, easydriver and RPi as shown below:
+#### Step 1: connect step motor, EasyDriver and RPi as shown below:
 
 ![](/images/RPiStepMotor_bb.png)
 
 Note: three GPIO pins connected to EasyDriver. 
-Yellow wire connect DIR (Direction) to GPIO 17
-White wire connect STEP (Step) to GPIO 18
-Blue wire connect SLP (Sleep) to GPIO 27
+
+ - Yellow wire connect **DIR** (Direction) to GPIO 17
+ - White wire connect **STEP** (Step) to GPIO 18
+ - Blue wire connect **SLP** (Sleep) to GPIO 27
 
 #### Step 2:  Start RPi, then open Python console and paste the following code:
 
@@ -60,7 +60,7 @@ def stepMotor(step):
     return
 ~~~
 
-#### Step 3:  Let’s drive the step motor
+#### Step 3:  Let's drive the step motor
 
 ~~~
 ## clockwise 
@@ -70,9 +70,9 @@ stepMotor(10)
 stepMotor(-10)
 ~~~
 
-The parameter **step** of function **stepMotor** determines the direction (positive & negative) and steps the step motor will rotate.
+The parameter **step** of function **stepMotor** determines the direction (positive & negative) and steps the motor will rotate. After every rotation, the function will let EasyDriver into **sleep mode** to save power. 
 
-#### If you encountered the motor failed to rotate or rotate in wrong manner, very possible is the wires connect step motor and EasyDriver is not correct. Change the order of wires will fix this problem. 
+#### If you encountered the motor failed to rotate or rotate in wrong manner, very possible is the wires order connected step motor and EasyDriver is not correct. Change the order of wires will fix this problem. 
 
 
 
