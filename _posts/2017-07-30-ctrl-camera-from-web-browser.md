@@ -14,7 +14,7 @@ In Tutorial 3, we have create a web service for streaming video using *mjpg-stre
 Install **lighttpd** and start the service
 
 ~~~
-sudo apt-get install -y lighttpd php5-cgi
+sudo apt-get install -y lighttpd
 sudo /etc/init.d/lighttpd start
 ~~~
 
@@ -176,10 +176,10 @@ def app(environ, start_response):
   if "q" in i:
     if i["q"][0] == "im": 
       im()   # take a picture
-    elif i["q"][0] == "ca1":
-      ca1() # Start to record a video
-    elif i["q"][0] == "ca0":
-      ca0() # Stop recording a video
+    elif i["q"][0] == "cm1":
+      cm1() # Start to record a video
+    elif i["q"][0] == "cm0":
+      cm0() # Stop recording a video
     elif i["q"][0] == "ru0":
       ru0() # Turn off camera
     elif i["q"][0] == "ru1":
@@ -194,11 +194,8 @@ Use the following command s to create above file.
 ~~~
 sudo mkdir /var/www/py
 sudo nano /var/www/py/ecorov.py
-~~~
 
-**Important**
-
-~~~
+## Important
 sudo chmod 755 /var/www/py/ecorov.py
 ~~~
 
@@ -224,7 +221,7 @@ Using url to control the camera is boring. We prefer to click a button to take a
     <script src="js/jquery-1.10.2.js"></script>
   </head>
   <body>
-    <iframe id="streaming"  src="http://192.168.8.8:8080/javascript_simple.html" width="600" height="300"></iframe>
+    <iframe id="streaming"  src="http://192.168.8.8:8080/javascript_simple.html" ></iframe>
     <form>
         <input type="button" value="Take picture"    onclick="go('im')" >
         <input type="button" value="Start recording" onclick="go('ca1')" >
