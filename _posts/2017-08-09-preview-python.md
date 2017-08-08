@@ -7,7 +7,7 @@ image: preview-python.png
 
 
 
-Initially, I was wanting to generate dynamic web page for preview the media files using PHP, which is the most used technique in the past 20 year. Unfortunately, I failed to setup the **fastcgi-php** due to I have a **fastcgi.server** for **Python** after struggled several hours. Then I was looking for a quite native way to generate web page, the idea is: **monitor change of the media folder, if change happens, makeup a updated HTML file for holding the content under that folder**.  The script of generate HTML file is written in Python, and keep running from the start of RPi.
+Initially, I was wanting to generate dynamic web page for previewing the media files (pictures) using PHP, which is the most used technique in the past 20 years. Unfortunately, I failed to setup the **fastcgi-php** due to I have a **fastcgi.server** for **Python** after struggled several hours. Then I was looking for a quite native way to generate web page, the idea is: **monitor change of the media folder, if change happens, makeup a updated HTML file for holding the content under that folder**.  The script of generate HTML file is written in Python, and keep running from the start of RPi.
 
 
 ~~~
@@ -67,6 +67,6 @@ while True:
 ~~~
     
 
-Now, let's add a line **python /var/www/py/preview.py &** in **/etc/rc.local** file, so any time the RPi starts, it will run the above code to generate updated preview page for media documents. We can check if it works by reboot the RPi and take some pictures, then visit URL **RPi-IP/preview.html**
+Now, let's add a line "**python /var/www/py/preview.py &**" in "**/etc/rc.local**" file, so any time the RPi starts, it will run the above code to generate updated preview page for media documents. We can check if it works by reboot the RPi and take some pictures, then visit URL **RPi-IP/preview.html**
 
 
