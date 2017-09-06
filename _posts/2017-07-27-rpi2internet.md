@@ -81,5 +81,5 @@ ping www.google.com
 Now, let’s update the Raspbian Jessie to the latest version
 
 ~~~
-sudo apt-get -y update
+sudo apt-get update
 ~~~
