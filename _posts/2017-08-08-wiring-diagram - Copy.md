@@ -5,7 +5,7 @@ date: 2017-08-04 10:32
 image: wiringDiagram.png
 ---
 
-![](/images/wiringDiagram.png)
+![](/images/wiringDiagram-hide.png)
 
 #### Part 1: 3G WiFi router
 
